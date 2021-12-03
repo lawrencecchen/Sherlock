@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Button, ButtonType } from "office-ui-fabric-react";
-import { ExcelUtils } from "./ExceLint-core/src/excelutils";
-import { ExceLintVector, ProposedFix } from "./ExceLint-core/src/ExceLintTypes";
-import { Config } from "./ExceLint-core/src/config";
+import * as React from 'react';
+import { Button, ButtonType } from 'office-ui-fabric-react';
+import { ExcelUtils } from './ExceLint-core/src/excelutils';
+import { ExceLintVector, ProposedFix } from './ExceLint-core/src/ExceLintTypes';
+import { Config } from './ExceLint-core/src/config';
 
 const barWidth = 100; // pixel length of the suspiciousness bar
 
@@ -25,19 +25,19 @@ export interface ContentProps {
 }
 
 const divStyle: any = {
-  height: "100px",
-  overflowY: "auto",
-  overflowX: "hidden",
+  height: '100px',
+  overflowY: 'auto',
+  overflowX: 'hidden',
 };
 
 const lineStyle: any = {
-  color: "blue",
-  textAlign: "left",
-  verticalAlign: "middle",
+  color: 'blue',
+  textAlign: 'left',
+  verticalAlign: 'middle',
 };
 
 const notSuspiciousStyle: any = {
-  color: "red",
+  color: 'red',
 };
 
 function makeTable(
@@ -84,9 +84,9 @@ function makeTable(
           );
         }
         const scoreStr = arr[i].score.toString(); //  + "\n" + "(" + Math.round(score).toString() + "% anomalous)";
-        let barColor = "red";
+        let barColor = 'red';
         if (Math.round(scoreBar) < 50) {
-          barColor = "yellow";
+          barColor = 'yellow';
         }
         children.push(
           <tr
@@ -102,7 +102,7 @@ function makeTable(
               style={{
                 width: Math.round(scoreBar),
                 backgroundColor: barColor,
-                display: "inline-block",
+                display: 'inline-block',
               }}
             >
               &nbsp;
@@ -111,8 +111,8 @@ function makeTable(
               title={scoreStr}
               style={{
                 width: barWidth - Math.round(scoreBar),
-                backgroundColor: "lightgray",
-                display: "inline-block",
+                backgroundColor: 'lightgray',
+                display: 'inline-block',
               }}
             >
               &nbsp;
@@ -125,8 +125,8 @@ function makeTable(
       let table = [];
       let header = (
         <tr>
-          <th align="left">Range</th>
-          <th align="left">Anomalousness</th>
+          <th align='left'>Range</th>
+          <th align='left'>Anomalousness</th>
         </tr>
       );
       table.push(
@@ -136,7 +136,7 @@ function makeTable(
           <br />
           <br />
           <div style={divStyle}>
-            <table style={{ width: "300px" }}>
+            <table style={{ width: '300px' }}>
               <tbody>
                 {header}
                 {children}
@@ -168,12 +168,12 @@ class PropsThing {
 }
 
 function DisplayFixes(props: PropsThing) {
-  if (props.sheetName === "") {
+  if (props.sheetName === '') {
     return <div></div>;
   }
 
   let result1 = <div></div>;
-  let str = "";
+  let str = '';
   // Filter out fixes whose score is below the threshold.
   let filteredFixes = props.themFixes.filter((pf) =>
     pf.score >= Config.getReportingThreshold() / 100
@@ -256,10 +256,10 @@ export class Content extends React.Component<ReactState, any> {
       instructions = (
         <div>
           <br />
-          Click on{" "}
+          Click on{' '}
           <a onClick={this.props.click1}>
             <b>Reveal Structure</b>
-          </a>{" "}
+          </a>{' '}
           to reveal the underlying structure of the spreadsheet. Different formulas are assigned
           different colors, making it easy to spot inconsistencies or to audit a spreadsheet for
           correctness.
@@ -271,13 +271,13 @@ export class Content extends React.Component<ReactState, any> {
     }
 
     return (
-      <div id="content-main">
-        <div className="padding">
-          <Button className="ms-button" buttonType={ButtonType.primary} onClick={this.props.click1}>
+      <div id='content-main'>
+        <div className='padding'>
+          <Button className='ms-button' buttonType={ButtonType.primary} onClick={this.props.click1}>
             {this.props.buttonLabel1}
           </Button>
           &nbsp;
-          <Button className="ms-button" buttonType={ButtonType.primary} onClick={this.props.click2}>
+          <Button className='ms-button' buttonType={ButtonType.primary} onClick={this.props.click2}>
             {this.props.buttonLabel2}
           </Button>
           <DisplayFixes
@@ -295,136 +295,136 @@ export class Content extends React.Component<ReactState, any> {
           {slider1}
           {slider2}
           <br />
-          <svg width="300" height="20">
-            <rect x="0" y="0" width="3.5714285714285716" height="20" fill="#ecaaae" />
+          <svg width='300' height='20'>
+            <rect x='0' y='0' width='3.5714285714285716' height='20' fill='#ecaaae' />
             <rect
-              x="3.5714285714285716"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#74aff3"
+              x='3.5714285714285716'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#74aff3'
             />
             <rect
-              x="7.142857142857143"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#d8e9b2"
+              x='7.142857142857143'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#d8e9b2'
             />
             <rect
-              x="10.714285714285715"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#deb1e0"
+              x='10.714285714285715'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#deb1e0'
             />
             <rect
-              x="14.285714285714286"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#9ec991"
+              x='14.285714285714286'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#9ec991'
             />
             <rect
-              x="17.857142857142858"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#adbce9"
+              x='17.857142857142858'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#adbce9'
             />
             <rect
-              x="21.42857142857143"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#e9c59a"
+              x='21.42857142857143'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#e9c59a'
             />
             <rect
-              x="25.000000000000004"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#71cdeb"
+              x='25.000000000000004'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#71cdeb'
             />
             <rect
-              x="28.571428571428577"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#bfbb8a"
+              x='28.571428571428577'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#bfbb8a'
             />
             <rect
-              x="32.142857142857146"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#94d9df"
+              x='32.142857142857146'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#94d9df'
             />
             <rect
-              x="35.714285714285715"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#91c7a8"
+              x='35.714285714285715'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#91c7a8'
             />
             <rect
-              x="39.285714285714285"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#b4efd3"
+              x='39.285714285714285'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#b4efd3'
             />
             <rect
-              x="42.857142857142854"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#80b6aa"
+              x='42.857142857142854'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#80b6aa'
             />
             <rect
-              x="46.42857142857142"
-              y="0"
-              width="3.5714285714285716"
-              height="20"
-              fill="#9bd1c6"
+              x='46.42857142857142'
+              y='0'
+              width='3.5714285714285716'
+              height='20'
+              fill='#9bd1c6'
             />
-            <text x="55" y="13">
+            <text x='55' y='13'>
               formulas (pastel colors)
             </text>
           </svg>
-          <svg width="300" height="20">
-            <rect x="0" y="0" width="50" height="20" fill="#d3d3d3" />
-            <text x="55" y="13">
+          <svg width='300' height='20'>
+            <rect x='0' y='0' width='50' height='20' fill='#d3d3d3' />
+            <text x='55' y='13'>
               data used by some formula (gray)
             </text>
           </svg>
           <br />
-          <svg width="300" height="20">
-            <rect x="0" y="0" width="50" height="20" fill="#eed202" />
-            <text x="55" y="13">
+          <svg width='300' height='20'>
+            <rect x='0' y='0' width='50' height='20' fill='#eed202' />
+            <text x='55' y='13'>
               data not used by ANY formula (yellow)
             </text>
           </svg>
           <br />
           <br />
-          <div className="ExceLint-scrollbar"></div>
+          <div className='ExceLint-scrollbar'></div>
           <br />
           <small>
             <a
-              target="_blank"
-              href="https://github.com/plasma-umass/ExceLint-addin/issues/new?assignees=dbarowy%2C+emeryberger%2C+bzorn&labels=enhancement&template=feature_request.md&title="
+              target='_blank'
+              href='https://github.com/plasma-umass/ExceLint-addin/issues/new?assignees=dbarowy%2C+emeryberger%2C+bzorn&labels=enhancement&template=feature_request.md&title='
             >
               Send feedback
-            </a>{" "}
-            |{" "}
+            </a>{' '}
+            |{' '}
             <a
-              target="_blank"
-              href="https://github.com/plasma-umass/ExceLint-addin/issues/new?assignees=dbarowy%2C+emeryberger%2C+bzorn&labels=bug&template=bug_report.md&title="
+              target='_blank'
+              href='https://github.com/plasma-umass/ExceLint-addin/issues/new?assignees=dbarowy%2C+emeryberger%2C+bzorn&labels=bug&template=bug_report.md&title='
             >
               Report bugs
             </a>
             <br />
-            For more information, see <a href="https://excelint.org">excelint.org</a>.
+            For more information, see <a href='https://excelint.org'>excelint.org</a>.
           </small>
           <br />
         </div>
