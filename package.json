@@ -10,6 +10,7 @@
     "start": "webpack serve --inline --host 0.0.0.0 --port 443 --mode production --config config/webpack.dev.js --progress",
     "start-local": "webpack serve --inline --host localhost --port 3000 --mode development --config config/webpack.dev-local.js --progress",
     "sideload": "office-toolbox sideload -m manifest.xml -a Excel",
+    "sideload-local": "office-toolbox sideload -m manifest-localhost.xml -a Excel",
     "build": "shx rm -rf src/components/ExceLint-core && git clone https://github.com/Dataspread/Sherlock-core src/components/ExceLint-core && npm run clean && webpack --mode development --config config/webpack.prod.js --progress",
     "validate": "office-toolbox validate -m manifest.xml"
   },
